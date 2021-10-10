@@ -28,12 +28,8 @@ class ProductRepositoryTest {
 
     @Test
     void shouldRemoveIfNotExist() {
-        try {
+        assertThrows(NotFoundException.class, () -> {
             repository.removeById(222);
-        } catch (NotFoundException e) {
-            return;
-        } catch (Exception e) {
-            fail();
-        }
+        });
     }
 }
